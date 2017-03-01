@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/rl")
 public class ReadingListController {
 	private ReadingListRepository readingListRepository;
 
@@ -33,6 +33,6 @@ public class ReadingListController {
 	public String addToReadingList(@PathVariable("reader") String reader, Book book) {
 		book.setReader(reader);
 		readingListRepository.save(book);
-		return "redirect:/{reader}";
+		return "redirect:/rl/{reader}";
 	}
 }
